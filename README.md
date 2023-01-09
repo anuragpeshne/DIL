@@ -1,7 +1,7 @@
-# DIL
+# Later
 Do It Later
 
-## What is DIL
+## What is Later
 Do It Later is a simple web app to record things that need to be done later,
 either by you, a script or some other human. DIL only records things, how they
 are processed is up to you.
