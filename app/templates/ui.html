@@ -2,26 +2,65 @@
 
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Later</title>
+    <style>
+h1 {
+  text-align: center;
+}
+
+div.form-row {
+  padding-bottom: 20px;
+}
+
+div#container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+select, input[type=text] {
+  width: 100%;
+}
+
+input[type=submit] {
+  padding: 10px;
+}
+    </style>
   </head>
   <body>
-    <h1>Later</h1>
-    <form method="post" id="later-form" action="">
-      <select name="path" id="path">
-        {% for _list in later_list: %}
-        <option value="{{ _list }}">{{ _list }}</option>
-        {% endfor %}
-      </select>
-      <input type="text" name="data" id="data">
-      <input type="submit">
-    </form>
+    <div id="container">
+      <h1>Later</h1>
+      <form method="post" id="later-form" action="">
+        <div class="form-row">
+          <div class="label-div">
+            <label for="path">List Path:</label>
+          </div>
+          <div class="input-div">
+            <select name="path" id="path">
+              {% for _list in later_list: %}
+              <option value="{{ _list }}">{{ _list }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="label-div">
+            <label for="data">Data:</label>
+          </div>
+          <div class="input-div">
+            <input type="text" name="data" id="data">
+          </div>
+        </div>
+        <input type="submit" value="Save">
+      </form>
+    </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("later-form").addEventListener(
           "submit",
           function(e) {
             var form = e.target;
-            var path = form.children.path.value;
+            var path = form.querySelectorAll('[name=path]')[0].value;
             form.action = "./" + path;
           });
       }, false);
