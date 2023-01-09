@@ -20,7 +20,11 @@ Send a POST or GET call with `data` payload to `path/to/file` URI.
 ### Examples
 
 ``` sh
-curl -X POST -F 'data=write a readme for Later' https://localhost/todo
+# Using POST
+curl -X POST -F 'data=write a readme for Later' http://localhost/todo
+
+# using GET
+curl "http://localhost/todo?data=write%20a%20readme%20for%20Later"
 ```
 
 ## Getting Started
