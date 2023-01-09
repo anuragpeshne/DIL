@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Do-It-Later</title>
+  </head>
+  <body>
+    <h1>Do-It-Later</h1>
+    <form method="post" id="dil-form" action="">
+      <select name="path" id="path">
+        {% for _list in dil_list: %}
+        <option value="{{ _list }}">{{ _list }}</option>
+        {% endfor %}
+      </select>
+      <input type="text" name="data" id="data">
+      <input type="submit">
+    </form>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("dil-form").addEventListener(
+          "submit",
+          function(e) {
+            var form = e.target;
+            var path = form.children.path.value;
+            form.action = "./" + path;
+          });
+      }, false);
+    </script>
+  </body>
+</html>

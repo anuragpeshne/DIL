@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, abort
+from flask import Flask, request, abort, render_template
+from os import listdir
 
 app = Flask(__name__)
 
+ROOT = "/data/"
+
 @app.route("/")
-def hello():
-    return "Hello, World!"
+def ui():
+    files = listdir(ROOT)
+    return render_template('ui.html', dil_list=files)
 
 @app.route("/<path:path>", methods=["GET", "POST"])
 def record(path):
@@ -15,7 +19,7 @@ def record(path):
         return abort(400) # bad request
 
     data = payload['data'].strip() + '\n'
-    with open("/data/" + path, "a") as taskfile:
+    with open(ROOT + path, "a") as taskfile:
         taskfile.write(data)
 
     return "Saved data in " + path
