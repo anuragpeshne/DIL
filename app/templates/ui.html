@@ -2,13 +2,13 @@
 
 <html>
   <head>
-    <title>Do-It-Later</title>
+    <title>Later</title>
   </head>
   <body>
-    <h1>Do-It-Later</h1>
-    <form method="post" id="dil-form" action="">
+    <h1>Later</h1>
+    <form method="post" id="later-form" action="">
       <select name="path" id="path">
-        {% for _list in dil_list: %}
+        {% for _list in later_list: %}
         <option value="{{ _list }}">{{ _list }}</option>
         {% endfor %}
       </select>
@@ -17,7 +17,7 @@
     </form>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("dil-form").addEventListener(
+        document.getElementById("later-form").addEventListener(
           "submit",
           function(e) {
             var form = e.target;

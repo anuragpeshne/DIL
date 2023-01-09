@@ -10,7 +10,7 @@ ROOT = "/data/"
 @app.route("/")
 def ui():
     files = listdir(ROOT)
-    return render_template('ui.html', dil_list=files)
+    return render_template('ui.html', later_list=files)
 
 @app.route("/<path:path>", methods=["GET", "POST"])
 def record(path):
