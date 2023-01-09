@@ -22,3 +22,9 @@ Send a POST or GET call with `data` payload to `path/to/file` URI.
 ``` sh
 curl -X POST -F 'data=write a readme for Later' https://localhost/todo
 ```
+
+## Getting Started
+```sh
+# edit compose.yaml to set the data location
+docker compose up -d
+```
