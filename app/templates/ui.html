@@ -109,7 +109,7 @@ body {
           function(e) {
             var form = e.target;
             var path = form.querySelectorAll('[name=path]')[0].value;
-            form.action = "./" + path;
+            form.action = window.location.href + "/" + path;
           });
       }, false);
     </script>
