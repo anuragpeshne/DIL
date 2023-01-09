@@ -15,7 +15,7 @@ def record(path):
         return abort(400) # bad request
 
     data = payload['data'].strip() + '\n'
-    with open(path, "a") as taskfile:
+    with open("/data/" + path, "a") as taskfile:
         taskfile.write(data)
 
     return "Saved data in " + path
